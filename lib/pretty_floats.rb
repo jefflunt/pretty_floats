@@ -1,7 +1,10 @@
 class Float
   # changes numbers like 1234567 to "1,234,567"
   def prettify(place_sep: ',', radix_sep: '.', num_places: -1)
+    sign = self < 0 ? '-' : ''
+
     int = self
+      .abs
       .to_i
       .to_s
       .chars
@@ -11,13 +14,12 @@ class Float
       .join(place_sep)
       .reverse
 
-    max_digits = num_places == -1 ? self.to_s.split('.').last.length : num_places
-    float = (self % 1)
-      .round(max_digits)
-      .to_s
+    max_precision = num_places == -1 ? self.to_s.split('.').last.length : num_places
+    float = self % 1
+    float = ("%.#{max_precision}f" % float)
       .split('.')
       .last
 
-    int + radix_sep + float
+    sign + int + radix_sep + float
   end
 end
