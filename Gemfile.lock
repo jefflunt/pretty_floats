@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    pretty_floats (1.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  x86_64-darwin-22
+
+DEPENDENCIES
+  pretty_floats!
+
+BUNDLED WITH
+   2.4.1
