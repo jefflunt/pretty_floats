@@ -1,5 +1,9 @@
 class Float
   # changes numbers like 1234567 to "1,234,567"
+  # or:
+  #
+  #  > -13321.23.prettify(num_places: 2)
+  # => "-13,321.77"
   def prettify(place_sep: ',', radix_sep: '.', num_places: -1)
     sign = self < 0 ? '-' : ''
 
